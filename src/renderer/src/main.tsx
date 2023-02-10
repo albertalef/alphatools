@@ -8,6 +8,7 @@ import './assets/index.css'
 import queryClient from './config/reactQuery.config'
 import AutoBidPage from './pages/AutoBidPage'
 import ConfigPage from './pages/ConfigPage'
+import TraitBidPage from './pages/TraitBidPage'
 import { store } from './redux/store'
 
 const router = createHashRouter([
@@ -23,6 +24,10 @@ const router = createHashRouter([
         path: '/',
         element: <AutoBidPage />,
       },
+      {
+        path: "/traitBid",
+        element: <TraitBidPage />
+      }
     ]
   }
 ]);

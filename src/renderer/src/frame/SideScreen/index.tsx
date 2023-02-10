@@ -3,6 +3,7 @@ import { styled } from "@renderer/config/stitches.config"
 import { useAppSelector } from "@renderer/redux/hooks"
 import { AiFillGold } from 'react-icons/ai'
 import NavButton from "./components/NavButton"
+import {RiTShirtFill} from 'react-icons/ri'
 
 export default function SideScreen() {
     const autoBidInstancesCount = useAppSelector(state => state.autoBidInstances.instances.length);
@@ -10,6 +11,7 @@ export default function SideScreen() {
     return (
         <Wrapper>
             <NavButton to={"/"} name={"Auto Bid"} Icon={AiFillGold} instancesCount={autoBidInstancesCount}/>
+            <NavButton to={"/traitBid"} name={"Trait Bid"} Icon={RiTShirtFill} iconSize={21}/>
         </Wrapper>
     )
 }
