@@ -5,7 +5,7 @@ import { AiFillGold } from 'react-icons/ai'
 import NavButton from "./components/NavButton"
 
 export default function SideScreen() {
-    const autoBidInstancesCount = useAppSelector(state => state.autoBidInstances).instances.length;
+    const autoBidInstancesCount = useAppSelector(state => state.autoBidInstances.instances.length);
 
     return (
         <Wrapper>
