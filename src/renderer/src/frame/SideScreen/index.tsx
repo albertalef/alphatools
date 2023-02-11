@@ -2,12 +2,15 @@ import SquareFrame from "@renderer/components/frames/SquareFrame"
 import { styled } from "@renderer/config/stitches.config"
 import NavButton from "./components/NavButton"
 import {AiFillGold} from 'react-icons/ai'
+import { useSelector } from "react-redux"
+import { selectAutoBidInstances } from "@renderer/redux/autoBid/autoBidInstancesSlice"
 
 export default function SideScreen() {
+    const autoBidInstancesCount = useSelector(selectAutoBidInstances).instances.length;
 
     return (
         <Wrapper>
-            <NavButton to={"/"} name={"Auto Bid"} Icon={AiFillGold}/>
+            <NavButton to={"/"} name={"Auto Bid"} Icon={AiFillGold} instancesCount={autoBidInstancesCount}/>
         </Wrapper>
     )
 }

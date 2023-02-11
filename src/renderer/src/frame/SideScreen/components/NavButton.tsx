@@ -7,15 +7,16 @@ interface NavButtonProps extends NavLinkProps{
     Icon?: IconType,
     name?: string,
     iconSize?: number,
+    instancesCount?: number,
 } 
 
-export default function NavButton({name, Icon, iconSize, ...props}: NavButtonProps) {
+export default function NavButton({name, Icon, iconSize, instancesCount = 0, ...props}: NavButtonProps) {
     return (
         <Wrapper {...props}>
             <IconHolder >{Icon && (<Icon fontSize={iconSize}/>)}</IconHolder>
             <LabelHolder>
                 <Title>{name}</Title>
-                <Status>2 Working</Status>
+                <Status>{instancesCount} Working</Status>
             </LabelHolder>
         </Wrapper>
     )
