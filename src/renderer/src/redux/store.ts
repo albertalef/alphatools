@@ -1,4 +1,4 @@
-import { configureStore, Store } from "@reduxjs/toolkit";
+import { configureStore } from "@reduxjs/toolkit";
 import autoBidCreationSlice from "./autoBid/autoBidCreationSlice";
 import autoBidInstancesSlice, { updateTime } from "./autoBid/autoBidInstancesSlice";
 import userSlice from "./userSlice";
