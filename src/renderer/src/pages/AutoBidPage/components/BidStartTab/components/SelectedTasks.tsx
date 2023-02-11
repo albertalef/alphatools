@@ -1,14 +1,15 @@
 import ButtonWrapper from "@renderer/components/buttons/ButtonWrapper";
 import { styled } from "@renderer/config/stitches.config";
-import { removeTask, selectAutoBidCreation } from "@renderer/redux/autoBid/autoBidCreationSlice";
-import { useDispatch, useSelector } from "react-redux";
-import { CgTrash } from 'react-icons/cg'
+import { removeTask } from "@renderer/redux/autoBid/autoBidCreationSlice";
+import { useAppSelector } from "@renderer/redux/hooks";
+import { CgTrash } from 'react-icons/cg';
+import { useDispatch } from "react-redux";
 
 
 
 
 export default function SelectedTasks() {
-    const tasks = useSelector(selectAutoBidCreation).addedTasks;
+    const tasks = useAppSelector(state => state.autoBidCreation.addedTasks);
 
     const dispatch = useDispatch();
 

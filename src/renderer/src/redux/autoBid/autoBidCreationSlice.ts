@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 import { InfoTask } from "@renderer/interfaces/AutoBidInterfaces";
 
 
-interface InitialStateType {
+export interface InitialStateType {
     addedTasks: InfoTask[],
 }
 
@@ -30,7 +30,5 @@ export const slice = createSlice({
 })
 
 export const { addTask, removeTask, clearAddedTasks } = slice.actions;
-
-export const selectAutoBidCreation = state => state.autoBidCreation;
 
 export default slice.reducer;

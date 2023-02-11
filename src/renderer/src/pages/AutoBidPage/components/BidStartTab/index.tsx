@@ -1,15 +1,16 @@
 import ButtonWrapper from "@renderer/components/buttons/ButtonWrapper";
 import { styled } from "@renderer/config/stitches.config";
-import { clearAddedTasks, selectAutoBidCreation } from "@renderer/redux/autoBid/autoBidCreationSlice";
+import { clearAddedTasks } from "@renderer/redux/autoBid/autoBidCreationSlice";
 import { createInstance } from "@renderer/redux/autoBid/autoBidInstancesSlice";
+import { useAppSelector } from "@renderer/redux/hooks";
 import { BsFillPlayFill } from "react-icons/bs";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import InputWrapper from "./components/InputWrapper";
 import SelectedTasks from "./components/SelectedTasks";
 
 export default function BidStartTab() {
 
-	const tasks = useSelector(selectAutoBidCreation).addedTasks;
+	const tasks = useAppSelector(state => state.autoBidCreation.addedTasks);
 	const dispatch = useDispatch();
 
 	function handleStartBot(){

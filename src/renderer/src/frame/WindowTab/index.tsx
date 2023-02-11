@@ -1,9 +1,8 @@
 import WalletApiHandler from "@renderer/api/WalletApiHandler"
 import { styled } from "@renderer/config/stitches.config"
-import { selectUser } from "@renderer/redux/userSlice"
+import { useAppSelector } from "@renderer/redux/hooks"
 import { useMemo } from "react"
 import { useQuery } from "react-query"
-import { useSelector } from "react-redux"
 import Web3 from "web3"
 import AccountStatus from "./components/AccountStatus"
 import ControlButtons from "./components/ControlButtons"
@@ -12,7 +11,7 @@ import Logo from "./components/Logo"
 
 
 export default function WindowTab() {
-    const accountAddress = useSelector(selectUser).walletAddress;
+    const accountAddress = useAppSelector(state => state.user.walletAddress);
     const isValidAddress = useMemo(() => Web3.utils.isAddress(accountAddress), [accountAddress]);
 
     const {data} = useQuery(['user', accountAddress, 'accountStatus'],() => WalletApiHandler.getAccountStatus(accountAddress), {

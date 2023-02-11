@@ -27,6 +27,5 @@ export const slice = createSlice({
 
 export const { changeWallet, changeAddress } = slice.actions;
 
-export const selectUser = state => state.user;
 
 export default slice.reducer;

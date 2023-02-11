@@ -1,15 +1,15 @@
 import SquareFrame from "@renderer/components/frames/SquareFrame";
 import { styled } from "@renderer/config/stitches.config";
-import { selectUser } from "@renderer/redux/userSlice";
-import { useSelector } from "react-redux";
+import { useAppSelector } from "@renderer/redux/hooks";
 import SettingsButton from "./components/SettingsButton";
 import WalletInfo from "./components/WalletInfo";
 
 
 export default function Footer(){
+	const walletAddress = useAppSelector(state => state.user.walletAddress);
 	return (
 		<Wrapper>
-			<WalletInfo accountAddress={useSelector(selectUser).walletAddress}/>
+			<WalletInfo accountAddress={walletAddress}/>
 			<SettingsButton/>
 		</Wrapper>
 	)

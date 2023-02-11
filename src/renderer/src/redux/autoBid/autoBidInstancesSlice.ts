@@ -2,11 +2,11 @@ import { createSlice } from "@reduxjs/toolkit";
 import BotController from "@renderer/controllers/BotController";
 import { BotInstanceInterface } from "@renderer/interfaces/AutoBidInterfaces";
 
-interface InstancesState {
+export interface AutoBidInstancesState {
     instances: BotInstanceInterface[],
 }
 
-const initialState: InstancesState = {
+const initialState: AutoBidInstancesState = {
     instances: [],
 }
 
@@ -82,7 +82,5 @@ export const slice = createSlice({
 })
 
 export const { updateTime, startInstance, stopInstance, createInstance, setClosed, removeTaskFromInstance, deleteInstance } = slice.actions;
-
-export const selectAutoBidInstances = state => state.autoBidInstances;
 
 export default slice.reducer;
