@@ -24,7 +24,8 @@
     "build:mac": "electron-vite build && electron-builder --mac --config",
     "build:linux": "electron-vite build && electron-builder --linux --config",
     "publish": "electron-forge publish",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "release": "semantic-release"
   },
   "dependencies": {
     "@electron-toolkit/preload": "^1.0.3",
