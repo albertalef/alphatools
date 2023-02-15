@@ -20,6 +20,10 @@ const globalStyle = globalCss({
 	},
 	"*": {
 		border: '0',
+	},
+	"*::selection": {
+		color: '#1C2326',
+		background: '#FC9927AA',
 	}
 })
 
