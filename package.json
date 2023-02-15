@@ -69,6 +69,7 @@
     "@typescript-eslint/eslint-plugin": "^5.48.0",
     "@typescript-eslint/parser": "^5.48.0",
     "@vitejs/plugin-react": "^3.0.1",
+    "commitizen": "^4.3.0",
     "electron": "^21.3.3",
     "electron-builder": "^23.6.0",
     "electron-vite": "^1.0.17",
