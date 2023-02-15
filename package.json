@@ -25,7 +25,8 @@
     "build:linux": "electron-vite build && electron-builder --linux --config",
     "publish": "electron-forge publish",
     "prepare": "husky install",
-    "release": "semantic-release"
+    "release": "semantic-release",
+    "commit": "npx git-cz"
   },
   "dependencies": {
     "@electron-toolkit/preload": "^1.0.3",
@@ -70,6 +71,7 @@
     "@typescript-eslint/parser": "^5.48.0",
     "@vitejs/plugin-react": "^3.0.1",
     "commitizen": "^4.3.0",
+    "cz-conventional-changelog": "^3.3.0",
     "electron": "^21.3.3",
     "electron-builder": "^23.6.0",
     "electron-vite": "^1.0.17",
@@ -93,7 +95,13 @@
   },
   "husky": {
     "hooks": {
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
+      "prepare-commit-msg": "exec < /dev/tty && npx cz --hook || true"
+    }
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
     }
   }
 }
