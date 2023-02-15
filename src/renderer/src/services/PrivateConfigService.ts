@@ -8,6 +8,7 @@ interface ConfigPair {
     key: string,
     value: string,
 }
+const templateConfigPath = path.resolve(__dirname, path.relative(__dirname, 'resources/private.py'))
 const configPath = path.resolve(__dirname, path.relative(__dirname, 'resources/bot/private.py'));
 
 
@@ -17,6 +18,8 @@ export default class PrivateConfigService {
     static privates: ConfigPair[] = this.getPrivates();
 
     static getPrivates(): ConfigPair[] {
+        if(!fs.existsSync(configPath)) fs.copyFileSync(templateConfigPath, configPath);
+
         const buffer = fs.readFileSync(configPath);
         const arr = buffer.toString().split("\r\n").map((line) => {
             const [key, value] = line.trim().split('=');
