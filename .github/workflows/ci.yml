@@ -22,28 +22,25 @@ jobs:
         with:
           token: ${{ secrets.GH_TOKEN_SEMANTIC_RELEASE }}
       
-      - name: Get npm cache directory
-        id: npm-cache-dir
-        shell: pwsh
-        run: echo "dir=$(npm config get cache)" >> ${env:GITHUB_OUTPUT}
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          cache: 'npm'
 
       - uses: actions/cache@v3
         id: npm-cache # use this to check for `cache-hit` ==> if: steps.npm-cache.outputs.cache-hit != 'true'
         with:
-          path: ${{ steps.npm-cache-dir.outputs.dir }}
+          path: node_modules
           key: ${{ runner.os }}-node-${{ hashFiles('**/yarn.lock') }}
           restore-keys: |
             ${{ runner.os }}-node-
-      
-      - if: ${{ steps.cache-npm.outputs.cache-hit != 'true' }}
+            ${{ runner.os }}-
+
+      - if: ${{ steps.npm-cache.outputs.cache-hit != 'true' }}
         name: List the state of node modules
         continue-on-error: true
         run: npm list
-            
-      - uses: actions/setup-node@v3
-        with:
-          node-version: 18
-          
+      
       - name: Install Dependencies
         run: npm install
 
