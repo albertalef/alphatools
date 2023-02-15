@@ -38,6 +38,8 @@ const Label = styled("p", {
     justifyContent: 'center',
     alignItems: "center",
 
+    WebkitUserSelect: 'none',
+
     boxSizing: "border-box",
     padding: '0 12px',
     paddingBottom: 2,
