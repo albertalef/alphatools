@@ -39,7 +39,6 @@ export default class OpenSeaApiHandler {
     }
 
     static async getStartBid(slug: string): Promise<number> {
-        const etherConstant = (10) ** -18;
 
         const url = `v2/offers/collection/${slug}?order_by=eth_price&order_direction=asc`;
         const { data } = await instance.get(url);
