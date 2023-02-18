@@ -25,9 +25,9 @@ export default function InputField({ label, setValue, divStyle, register, isErro
             const step = Number(props.step);
             const newValue = (inputCurrentValue + (wheelDirection * step));
             const newValueInString = newValue.toLocaleString('en', {maximumFractionDigits: 5});
-            
-            if(props.min && newValue < props.min) return; 
-            if(props.max && newValue > props.max) return; 
+
+            if(props.min != null && newValue < props.min) return; 
+            if(props.max != null && newValue > props.max) return; 
             
             setValue?.(register.name, newValueInString) ;
         }

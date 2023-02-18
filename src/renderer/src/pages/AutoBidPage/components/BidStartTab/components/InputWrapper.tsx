@@ -45,7 +45,6 @@ export default function InputWrapper() {
 			retry: false,
 		});
 
-	const priceLimitMin = useMemo(() => Number((startBid + 0.00001).toFixed(5)), [startBid])
 
 	useEffect(() => {
 		if (data && !isLoading) {
@@ -86,7 +85,7 @@ export default function InputWrapper() {
 				min={0}
 				step={0.00001}
 				setValue={setValue}
-				register={register('priceLimit', { required: true, min: priceLimitMin })}
+				register={register('priceLimit', { required: true, min: 0 })}
 				isError={!!errors.priceLimit}
 				isLoading={isLoading && !isDebouncing}
 			/>
