@@ -34,9 +34,9 @@ export default function SettingsContainer({ instanceId, tasks, isRunning, hidden
                             tasks.map((task, index) =>
                                 <Row key={index}>
                                     <BodyCell style={{ width: '40%' }}>{task.slug}</BodyCell>
-                                    <BodyCell style={{ width: '18%' }}>{task.startBid.toLocaleString(navigator.language, { maximumFractionDigits: 4 })}</BodyCell>
-                                    <BodyCell style={{ width: '18%' }}>{task.priceLimit.toLocaleString(navigator.language, { maximumFractionDigits: 4 })}</BodyCell>
-                                    <BodyCell style={{ width: '15%' }}>{task.percent.toLocaleString(navigator.language, { maximumFractionDigits: 4 })}</BodyCell>
+                                    <BodyCell style={{ width: '18%' }}>{task.startBid.toLocaleString(navigator.language, { maximumFractionDigits: 5 })}</BodyCell>
+                                    <BodyCell style={{ width: '18%' }}>{task.priceLimit.toLocaleString(navigator.language, { maximumFractionDigits: 5 })}</BodyCell>
+                                    <BodyCell style={{ width: '15%' }}>{task.percent.toLocaleString(navigator.language, { maximumFractionDigits: 5 })}</BodyCell>
                                     <BodyCell style={{ width: '8%' }}><RemoveButton isVisible={isRunning} onClick={() => dispatch(removeTaskFromInstance({ instanceId, index }))}><IoCloseOutline /></RemoveButton></BodyCell>
                                 </Row>
                             )
