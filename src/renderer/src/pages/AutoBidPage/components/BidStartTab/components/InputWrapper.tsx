@@ -33,7 +33,7 @@ export default function InputWrapper() {
 			defaultValues: {
 				slug: '',
 				priceLimit: 0,
-				percent: 0
+				percent: 5
 			},
 		});
 
@@ -45,11 +45,11 @@ export default function InputWrapper() {
 			retry: false,
 		});
 
-	const priceLimitMin = useMemo(() => Number((startBid + 0.0001).toFixed(4)), [startBid])
+	const priceLimitMin = useMemo(() => Number((startBid + 0.00001).toFixed(5)), [startBid])
 
 	useEffect(() => {
 		if (data && !isLoading) {
-			setValue('priceLimit', Number((data.startBid + 0.0001).toFixed(4)));
+			setValue('priceLimit', Number((data.startBid + 0.00001).toFixed(5)));
 			setFloorPrice(data.floorPrice);
 			setStartBid(data.startBid);
 		}
@@ -83,8 +83,8 @@ export default function InputWrapper() {
 				divStyle={{ gridColumn: '3/5' }}
 				label='Price Limit'
 				type={'number'}
-				min={priceLimitMin}
-				step={0.0001}
+				min={0}
+				step={0.00001}
 				register={register('priceLimit', { required: true, min: priceLimitMin })}
 				isError={!!errors.priceLimit}
 				isLoading={isLoading && !isDebouncing}
@@ -94,9 +94,9 @@ export default function InputWrapper() {
 			<InputField
 				label='Percent'
 				type={'number'}
-				min={0}
-				step={5}
-				register={register('percent', { min: 0 })}
+				min={1}
+				step={1}
+				register={register('percent', { min: 1, required: true})}
 				isError={!!errors.percent}
 
 			/>

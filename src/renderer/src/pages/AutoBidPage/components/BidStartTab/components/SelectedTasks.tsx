@@ -33,9 +33,9 @@ export default function SelectedTasks() {
                             return (
                                 <TRow key={index}>
                                     <TData css={{ width: '35%' }}>{task.slug}</TData>
-                                    <TData css={{ width: '16%' }}>{task.startBid.toLocaleString(navigator.language, { maximumFractionDigits: 4 })}</TData>
-                                    <TData css={{ width: '16%' }}>{task.priceLimit.toLocaleString(navigator.language, { maximumFractionDigits: 4 })}</TData>
-                                    <TData css={{ width: '16%' }}>{task.floorPrice.toLocaleString(navigator.language, { maximumFractionDigits: 4 })}</TData>
+                                    <TData css={{ width: '16%' }}>{task.startBid.toLocaleString(navigator.language, { maximumFractionDigits: 5 })}</TData>
+                                    <TData css={{ width: '16%' }}>{task.priceLimit.toLocaleString(navigator.language, { maximumFractionDigits: 5 })}</TData>
+                                    <TData css={{ width: '16%' }}>{task.floorPrice.toLocaleString(navigator.language, { maximumFractionDigits: 5 })}</TData>
                                     <TData css={{ width: '10%' }}>{task.percent}</TData>
                                     <TData onClick={() => dispatch(removeTask(index))}><DeleteButton> <CgTrash /></DeleteButton></TData>
                                 </TRow>
