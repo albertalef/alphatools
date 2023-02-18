@@ -43,7 +43,7 @@ export default class OpenSeaApiHandler {
         const url = `v2/offers/collection/${slug}?order_by=eth_price&order_direction=asc`;
         const { data } = await instance.get(url);
         
-        const value = new bigDecimal(data.offers[0].protocol_data.parameters.offer[0].startAmount);
+        const value = new bigDecimal(data.offers[0].protocolData.parameters.offer[0].startAmount);
         return Number(value.divide(etherConstant, 5).add(new bigDecimal('0.00001')).getValue())
     }
 
