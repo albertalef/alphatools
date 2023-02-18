@@ -5498,6 +5498,11 @@ jquery@^3.2.1:
   resolved "https://registry.yarnpkg.com/jquery/-/jquery-3.6.3.tgz#23ed2ffed8a19e048814f13391a19afcdba160e6"
   integrity sha512-bZ5Sy3YzKo9Fyc8wH2iIQK4JImJ6R0GWI9kL1/k7Z91ZBNgkRXE6U0JfHIizZbort8ZunhSI3jw9I6253ahKfg==
 
+js-big-decimal@^1.4.1:
+  version "1.4.1"
+  resolved "https://registry.yarnpkg.com/js-big-decimal/-/js-big-decimal-1.4.1.tgz#e79423a1d06e55a390547d75233ff289c3dd8820"
+  integrity sha512-lEE6kXojqv1/ky/H0nTTg5gi+1g+V6O94T2GPpZTGayXGeYIC6f6PszckNsEa7S2+qgas9ZOEkONMryxXVKWwQ==
+
 js-sdsl@^4.1.4:
   version "4.3.0"
   resolved "https://registry.yarnpkg.com/js-sdsl/-/js-sdsl-4.3.0.tgz#aeefe32a451f7af88425b11fdb5f58c90ae1d711"
