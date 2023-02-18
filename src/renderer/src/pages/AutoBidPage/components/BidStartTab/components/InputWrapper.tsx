@@ -85,6 +85,7 @@ export default function InputWrapper() {
 				type={'number'}
 				min={0}
 				step={0.00001}
+				setValue={setValue}
 				register={register('priceLimit', { required: true, min: priceLimitMin })}
 				isError={!!errors.priceLimit}
 				isLoading={isLoading && !isDebouncing}
@@ -96,6 +97,7 @@ export default function InputWrapper() {
 				type={'number'}
 				min={1}
 				step={1}
+				setValue={setValue}
 				register={register('percent', { min: 1, required: true})}
 				isError={!!errors.percent}
 

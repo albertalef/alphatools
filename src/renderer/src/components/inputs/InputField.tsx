@@ -1,4 +1,6 @@
 import { keyframes, styled } from "@renderer/config/stitches.config"
+import { useCallback } from "react"
+import { UseFormRegisterReturn, UseFormSetValue } from "react-hook-form"
 import { BiLoader } from "react-icons/bi"
 
 
@@ -7,16 +9,35 @@ interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
     label?: string,
     divStyle?: React.CSSProperties,
     isError?: boolean,
-    register?: any,
-    isLoading?: boolean
+    register?: UseFormRegisterReturn,
+    isLoading?: boolean,
+    setValue?: UseFormSetValue<any>,
 }
 
-export default function InputField({ label, divStyle, register, isError, isLoading, ...props}: InputProps) {
+export default function InputField({ label, setValue, divStyle, register, isError, isLoading, ...props}: InputProps) {
+
+    const handleWheel = useCallback<React.WheelEventHandler<HTMLInputElement>>((e) => {
+        
+        if(props.type == 'number' && !props.readOnly && e.currentTarget !== document.activeElement && register?.name){
+
+            const wheelDirection = - (e.deltaY / Math.abs(e.deltaY)); // 1 or -1
+            const inputCurrentValue = Number(e.currentTarget.value);
+            const step = Number(props.step);
+            const newValue = (inputCurrentValue + (wheelDirection * step));
+            const newValueInString = newValue.toLocaleString('en', {maximumFractionDigits: 5});
+            
+            if(props.min && newValue < props.min) return; 
+            if(props.max && newValue > props.max) return; 
+            
+            setValue?.(register.name, newValueInString) ;
+        }
+        
+    },[])
 
     return (
-        <Wrapper style={divStyle}>
+        <Wrapper  style={divStyle}>
             <Label>{label}</Label>
-            <Input isError={isError} {...register} readonly={props.readOnly} spellCheck={false} {...props}/>
+            <Input onWheel={handleWheel} isError={isError} {...register} readonly={props.readOnly} spellCheck={false} {...props}/>
             <LoadIcon isLoading={isLoading}/>
         </Wrapper>
     )
