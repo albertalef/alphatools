@@ -1,0 +1,67 @@
+# This is a basic workflow to help you get started with Actions
+
+name: Pull Request Check
+
+on:
+  pull_request:
+    branches: [ "master", "develop"]
+
+jobs:
+  typecheck:
+    name: Type Check
+    permissions: write-all
+    runs-on: windows-latest
+
+    # strategy:
+    #   matrix:
+    #     node-version: [18.x]
+
+
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.GH_TOKEN_SEMANTIC_RELEASE }}
+      
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          cache: 'npm'
+
+      - uses: actions/cache@v3
+        id: npm-cache # use this to check for `cache-hit` ==> if: steps.npm-cache.outputs.cache-hit != 'true'
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-node-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+            ${{ runner.os }}-
+
+      - if: ${{ steps.npm-cache.outputs.cache-hit != 'true' }}
+        name: List the state of node modules
+        continue-on-error: true
+        run: npm list
+      
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Get Commit Difference Count Between Two Branches
+        id: cdc
+        uses: jessicalostinspace/commit-difference-action@v1.0.0
+        with:
+          base-branch: ${{github.event.pull_request.base.ref}}
+          secondary-branch: ${GITHUB_REF##*/}
+
+      - name: Commit Lint
+        env:
+          HUSKY: 0
+          GH_TOKEN: ${{ secrets.GH_TOKEN_SEMANTIC_RELEASE }}
+        run: npx commitlint --from HEAD~${ steps.cdc.outputs.commit-difference-count }} --to HEAD
+
+
+      - name: Type Check
+        id: typecheck
+        env:
+          HUSKY: 0
+          GH_TOKEN: ${{ secrets.GH_TOKEN_SEMANTIC_RELEASE }}
+        run: npm run typecheck
+        
