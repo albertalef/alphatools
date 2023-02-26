@@ -4,7 +4,7 @@ import { styled } from "@renderer/config/stitches.config";
 import useDebounce from "@renderer/hooks/useDebounce";
 import { InfoTask, SlugData } from "@renderer/interfaces/AutoBidInterfaces";
 import { addTask } from "@renderer/redux/autoBid/autoBidCreationSlice";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { HiPlusSm } from "react-icons/hi";
 import { useQuery } from "react-query";
