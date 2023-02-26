@@ -1,6 +1,6 @@
 {
   "name": "alphatools",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "An Interface to a NFT Bot",
   "main": "./out/main/index.js",
   "author": "github.com/albertalef",

@@ -1,3 +1,16 @@
+# [1.2.0](https://github.com/albertalef/alphatools/compare/v1.1.0...v1.2.0) (2023-02-26)
+
+
+### Bug Fixes
+
+* **AutoBidPage:** change min value to price limit to 0 ([4d8bcd4](https://github.com/albertalef/alphatools/commit/4d8bcd407ed8ed452ed2afa47e8ab60160bbb7a3))
+* **BotInstance:** fix offers error, 'press Enter to exit:' and bid collections with no bids ([5fb6c1c](https://github.com/albertalef/alphatools/commit/5fb6c1c426b586feb151227f4cbadc9d58b335cb))
+
+
+### Features
+
+* **InputField:** add wheel event without selected ([78eaa66](https://github.com/albertalef/alphatools/commit/78eaa66d59cb552c480bd5bd03fe86f78ecdda28))
+
 # [1.1.0](https://github.com/albertalef/alphatools/compare/v1.0.1...v1.1.0) (2023-02-18)
 
 
