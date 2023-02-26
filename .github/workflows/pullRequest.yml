@@ -49,7 +49,7 @@ jobs:
         uses: jessicalostinspace/commit-difference-action@v1.0.0
         with:
           base-branch: ${{github.event.pull_request.base.ref}}
-          secondary-branch: ${GITHUB_REF##*/}
+          secondary-branch: ${{GITHUB_REF##*/}}
 
       - name: Commit Lint
         env:
