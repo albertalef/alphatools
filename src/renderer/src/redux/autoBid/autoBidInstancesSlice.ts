@@ -1,13 +1,14 @@
 import { createSlice } from "@reduxjs/toolkit";
 import BotController from "@renderer/controllers/BotController";
 import { BotInstanceInterface } from "@renderer/interfaces/AutoBidInterfaces";
+import AutoBidStorage from "@renderer/storage/autoBid/AutoBidStorage";
 
 export interface AutoBidInstancesState {
     instances: BotInstanceInterface[],
 }
 
 const initialState: AutoBidInstancesState = {
-    instances: [],
+    instances: AutoBidStorage.getInstances() || [],
 }
 
 export const slice = createSlice({
@@ -84,3 +85,12 @@ export const slice = createSlice({
 export const { updateTime, startInstance, stopInstance, createInstance, setClosed, removeTaskFromInstance, deleteInstance } = slice.actions;
 
 export default slice.reducer;
+
+export const autoBidInstancesMiddleware = (store: any) => (next: any) => (action: any) => {
+    const result = next(action);
+    if (action.type == 'autoBidInstances/createInstance' || action.type == 'autoBidInstances/deleteInstance' || action.type == 'autoBidInstances/removeTaskFromInstance') {
+        const instances = store.getState().autoBidInstances.instances;
+        AutoBidStorage.setInstances(instances);
+    }
+    return result;
+}
