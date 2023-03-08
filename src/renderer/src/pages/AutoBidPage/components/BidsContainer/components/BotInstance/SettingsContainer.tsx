@@ -1,9 +1,12 @@
 import ButtonWrapper from "@renderer/components/buttons/ButtonWrapper"
 import { styled } from "@renderer/config/stitches.config"
 import { Task } from "@renderer/interfaces/AutoBidInterfaces"
+import { loadTasks } from "@renderer/redux/autoBid/autoBidCreationSlice"
 import { deleteInstance, removeTaskFromInstance } from "@renderer/redux/autoBid/autoBidInstancesSlice"
+import { useAppDispatch } from "@renderer/redux/hooks"
+import { useCallback } from "react"
 import { IoCloseOutline } from "react-icons/io5"
-import { useDispatch } from "react-redux"
+import { RiEdit2Fill } from "react-icons/ri"
 
 
 interface SettingsContainerProps {
@@ -14,7 +17,13 @@ interface SettingsContainerProps {
 }
 export default function SettingsContainer({ instanceId, tasks, isRunning, hidden }: SettingsContainerProps) {
 
-    const dispatch = useDispatch();
+    const dispatch = useAppDispatch();
+    
+    const handleEdit = useCallback(() => {
+        dispatch(loadTasks(tasks));
+        dispatch(deleteInstance(instanceId));
+    }, []);
+
     return (
         <Wrapper hidden={hidden}>
 
@@ -46,6 +55,7 @@ export default function SettingsContainer({ instanceId, tasks, isRunning, hidden
             </Table>
             <ButtonsContainer>
                 <InstanceId>{"AlphaBot-" + instanceId}</InstanceId>
+                <EditButton onClick={handleEdit}><RiEdit2Fill /></EditButton>
                 <DeleteButton onClick={() => dispatch(deleteInstance(instanceId))}>Delete Instance</DeleteButton>
             </ButtonsContainer>
         </Wrapper>
@@ -70,7 +80,7 @@ const ButtonsContainer = styled('div', {
     height: 26,
     display: 'flex',
     justifyContent: 'flex-end',
-    gap: 11,
+    gap: 5,
 
 })
 
@@ -187,4 +197,17 @@ const BodyCell = styled(Cell, {
     fontWeight: 500,
     letterSpacing: "-0.015em",
     color: "#B4B9BCCC",
+})
+
+const EditButton = styled(ButtonWrapper, {
+    background: "#3D454A",
+    borderRadius: 5,
+    height: '100%',
+    width: 50,
+    fontFamily: "Work Sans",
+    paddingBottom: 1,
+    fontSize: "13px",
+    fontWeight: 600,
+    letterSpacing: "0.02em",
+    color: "#B4B9BCFF",
 })
