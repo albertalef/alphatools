@@ -2,7 +2,9 @@ import { app, shell, BrowserWindow, ipcMain } from 'electron'
 import { join } from 'path'
 import { electronApp, optimizer, is } from '@electron-toolkit/utils'
 import icon from '../../resources/icon.png?asset'
+import Store from 'electron-store'
 
+const store = new Store();
 
 
 function createWindow(): void {
@@ -54,6 +56,13 @@ function createWindow(): void {
 	ipcMain.on("unMaximizeApp", _ => {
 		mainWindow.unmaximize();
 	})
+
+	ipcMain.on('store-get', async (event, val) => {
+		event.returnValue = store.get(val);
+	});
+	ipcMain.on('store-set', async (_, key, val) => {
+		store.set(key, val);
+	});
 
 	mainWindow.webContents.setWindowOpenHandler((details) => {
 		shell.openExternal(details.url)
