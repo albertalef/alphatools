@@ -1,14 +1,14 @@
 {
   "name": "alphatools",
-  "version": "1.2.2",
+  "version": "1.3.2",
   "description": "An Interface to a NFT Bot",
   "main": "./out/main/index.js",
   "author": "github.com/albertalef",
-  "homepage": "github.com/albertalef/alphatools",
+  "homepage": "github.com/AlphaToolsBot/alphatools",
   "private": true,
   "repository": {
     "type": "git",
-    "url": "https://github.com/albertalef/alphatools"
+    "url": "https://github.com/AlphaToolsBot/alphatools"
   },
   "scripts": {
     "format": "prettier --write .",

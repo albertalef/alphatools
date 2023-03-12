@@ -1,3 +1,25 @@
+## [1.3.2](https://github.com/AlphaToolsBot/alphatools/compare/v1.3.1...v1.3.2) (2023-03-12)
+
+
+### Bug Fixes
+
+* change repository url ([9f467a3](https://github.com/AlphaToolsBot/alphatools/commit/9f467a3e435b98991547fa947af4c27104c9912d))
+
+## [1.3.1](https://github.com/albertalef/alphatools/compare/v1.3.0...v1.3.1) (2023-03-12)
+
+
+### Bug Fixes
+
+* **BotInstance:** fix seaport version from 1.1v to 1.4 ([5ade071](https://github.com/albertalef/alphatools/commit/5ade071de989b261bbe77dea32fa2f7387e1e861))
+
+# [1.3.0](https://github.com/albertalef/alphatools/compare/v1.2.2...v1.3.0) (2023-03-08)
+
+
+### Features
+
+* **AutoBidPage:** add edit button in instance ([d7db4cf](https://github.com/albertalef/alphatools/commit/d7db4cfa04dee70327903eb11aefee2318103bb3))
+* **Storage:** add storage to load instances after reopen the app ([c6e6c7a](https://github.com/albertalef/alphatools/commit/c6e6c7a09be4b791f95009023ed5bc71b178c3bf))
+
 ## [1.2.2](https://github.com/albertalef/alphatools/compare/v1.2.1...v1.2.2) (2023-03-07)
 
 
