@@ -9,7 +9,7 @@ export default function Logo({version}: LogoProps) {
     return (
         <LogoWrapper>
             <LogoImage src={logo} />
-            <LogoTitle>AlphaBot</LogoTitle>
+            <LogoTitle>AlphaTools</LogoTitle>
             <LogoVersion>{version}</LogoVersion>
         </LogoWrapper>
     )
