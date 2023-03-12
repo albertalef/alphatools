@@ -14,6 +14,9 @@ export const slice = createSlice({
     name: 'autoBidCreation',
     initialState,
     reducers: {
+        loadTasks(state, { payload }) {
+            return { ...state, addedTasks: payload }
+        },
         addTask(state, { payload }) {
             return { ...state, addedTasks: [payload, ...state.addedTasks] }
         },
@@ -29,6 +32,6 @@ export const slice = createSlice({
     }
 })
 
-export const { addTask, removeTask, clearAddedTasks } = slice.actions;
+export const { loadTasks, addTask, removeTask, clearAddedTasks } = slice.actions;
 
 export default slice.reducer;

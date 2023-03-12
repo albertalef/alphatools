@@ -1,3 +1,31 @@
+## [1.2.2](https://github.com/albertalef/alphatools/compare/v1.2.1...v1.2.2) (2023-03-07)
+
+
+### Bug Fixes
+
+* **BotInstance:** fix counter and "errors" bugs ([8f1259c](https://github.com/albertalef/alphatools/commit/8f1259c5dca890674d8682bd09f98d6f2371a15a))
+
+## [1.2.1](https://github.com/albertalef/alphatools/compare/v1.2.0...v1.2.1) (2023-02-27)
+
+
+### Bug Fixes
+
+* **BotInstance:** fix error: '>' not supported between instance of 'dict' and 'float' ([1f3a42d](https://github.com/albertalef/alphatools/commit/1f3a42d10ec3f74bd59ae58655118e533ca0ce0e))
+* **PrivateConfigService:** fix app using privates files from folders outside the app folder ([76c9cde](https://github.com/albertalef/alphatools/commit/76c9cdea1ff1a294196b8ecc737fcde19e9ef3a9))
+
+# [1.2.0](https://github.com/albertalef/alphatools/compare/v1.1.0...v1.2.0) (2023-02-26)
+
+
+### Bug Fixes
+
+* **AutoBidPage:** change min value to price limit to 0 ([4d8bcd4](https://github.com/albertalef/alphatools/commit/4d8bcd407ed8ed452ed2afa47e8ab60160bbb7a3))
+* **BotInstance:** fix offers error, 'press Enter to exit:' and bid collections with no bids ([5fb6c1c](https://github.com/albertalef/alphatools/commit/5fb6c1c426b586feb151227f4cbadc9d58b335cb))
+
+
+### Features
+
+* **InputField:** add wheel event without selected ([78eaa66](https://github.com/albertalef/alphatools/commit/78eaa66d59cb552c480bd5bd03fe86f78ecdda28))
+
 # [1.1.0](https://github.com/albertalef/alphatools/compare/v1.0.1...v1.1.0) (2023-02-18)
 
 

@@ -1,3 +1,4 @@
+import rootPath from "@renderer/rootPath";
 import fsType from "fs";
 const fs: typeof fsType = require('fs');
 
@@ -8,10 +9,10 @@ interface ConfigPair {
     key: string,
     value: string,
 }
-const templateConfigPath = path.resolve(__dirname, path.relative(__dirname, 'resources/private.py'))
-const configPath = path.resolve(__dirname, path.relative(__dirname, 'resources/bot/private.py'));
 
-
+const resourcesPath = process.env.NODE_ENV === 'development' ? '../../../../../../resources' : '../../../';
+const templateConfigPath = path.resolve(rootPath(), resourcesPath, 'private.py');
+const configPath = path.resolve(rootPath(), resourcesPath, 'bot/private.py');
 
 export default class PrivateConfigService {
 

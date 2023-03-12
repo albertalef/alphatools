@@ -1,6 +1,6 @@
 {
   "name": "alphatools",
-  "version": "1.1.0",
+  "version": "1.2.2",
   "description": "An Interface to a NFT Bot",
   "main": "./out/main/index.js",
   "author": "github.com/albertalef",
@@ -18,7 +18,7 @@
     "typecheck": "npm run typecheck:node && npm run typecheck:web",
     "start": "electron-vite preview",
     "dev": "electron-vite dev",
-    "build": "npm run typecheck && electron-vite build",
+    "build": "electron-vite build",
     "postinstall": "electron-builder install-app-deps",
     "build:win": "npm run build && electron-builder --win --config",
     "build:mac": "electron-vite build && electron-builder --mac --config",
@@ -33,6 +33,7 @@
     "@reduxjs/toolkit": "^1.9.1",
     "@stitches/react": "^1.2.8",
     "axios": "^1.2.4",
+    "electron-store": "^8.1.0",
     "electron-toolkit": "^1.0.24",
     "electron-updater": "^5.3.0",
     "js-big-decimal": "^1.4.1",
@@ -84,11 +85,6 @@
     "typescript": "^4.9.4",
     "vite": "^4.0.4",
     "vite-plugin-commonjs-externals": "^0.1.1"
-  },
-  "commitlint": {
-    "extends": [
-      "@commitlint/config-conventional"
-    ]
   },
   "husky": {
     "hooks": {
