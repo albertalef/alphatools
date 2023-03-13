@@ -1,3 +1,10 @@
+## [1.3.3](https://github.com/AlphaToolsBot/alphatools/compare/v1.3.2...v1.3.3) (2023-03-12)
+
+
+### Bug Fixes
+
+* change app name from instance ([1058cdd](https://github.com/AlphaToolsBot/alphatools/commit/1058cdd0ab4c4a3929771338383fabdc5b7d768a))
+
 ## [1.3.2](https://github.com/AlphaToolsBot/alphatools/compare/v1.3.1...v1.3.2) (2023-03-12)
 
 
